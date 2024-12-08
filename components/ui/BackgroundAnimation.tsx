@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { type Theme } from "next-themes";
 
 export default function BackgroundAnimation() {
   return (
