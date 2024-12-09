@@ -127,49 +127,54 @@ export default function Terminal() {
 				timestamp: new Date(),
 			},
 		]);
+
+		// scroll to the bottom
 	};
 
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			className="bg-black/90 text-green-500 p-4 rounded-lg font-mono text-sm h-[500px] overflow-auto mx-auto max-w-3xl w-full">
-			<div className="flex items-center gap-2 mb-4 border-b border-green-500/20 pb-2">
-				<div className="w-3 h-3 rounded-full bg-red-500" />
-				<div className="w-3 h-3 rounded-full bg-yellow-500" />
-				<div className="w-3 h-3 rounded-full bg-green-500" />
-				<span className="ml-2 text-xs">portfolio-cli</span>
-			</div>
+		<div className="flex items-center w-full justify-center p-4">
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				className="bg-black/90 text-green-500 p-4 rounded-lg font-mono text-sm h-[500px] overflow-auto w-full"
+				onClick={() => inputRef.current?.focus()}>
+				<div className="flex items-center gap-2 mb-4 border-b border-green-500/20 pb-2">
+					<div className="w-3 h-3 rounded-full bg-red-500" />
+					<div className="w-3 h-3 rounded-full bg-yellow-500" />
+					<div className="w-3 h-3 rounded-full bg-green-500" />
+					<span className="ml-2 text-xs">portfolio-cli</span>
+				</div>
 
-			<div className="space-y-2">
-				{history.map((cmd, i) => (
-					<div key={i} className="space-y-1">
-						<div className="flex items-center gap-2">
-							<span className="text-purple-500">→</span>
-							<span>{cmd.input}</span>
+				<div className="space-y-2">
+					{history.map((cmd, i) => (
+						<div key={i} className="space-y-1">
+							<div className="flex items-center gap-2">
+								<span className="text-purple-500">→</span>
+								<span>{cmd.input}</span>
+							</div>
+							<div className="pl-6">{cmd.output}</div>
 						</div>
-						<div className="pl-6">{cmd.output}</div>
-					</div>
-				))}
-			</div>
+					))}
+				</div>
 
-			<div className="flex items-center gap-2 mt-4">
-				<span className="text-purple-500">→</span>
-				<input
-					ref={inputRef}
-					type="text"
-					value={input}
-					onChange={(e) => setInput(e.target.value)}
-					onKeyDown={(e) => {
-						if (e.key === 'Enter') {
-							handleCommand(input);
-							setInput('');
-						}
-					}}
-					className="bg-transparent focus:outline-none flex-1"
-					autoFocus
-				/>
-			</div>
-		</motion.div>
+				<div className="flex items-center gap-2 mt-4">
+					<span className="text-purple-500">→</span>
+					<input
+						ref={inputRef}
+						type="text"
+						value={input}
+						onChange={(e) => setInput(e.target.value)}
+						onKeyDown={(e) => {
+							if (e.key === 'Enter') {
+								handleCommand(input);
+								setInput('');
+							}
+						}}
+						className="bg-transparent focus:outline-none flex-1"
+						autoFocus
+					/>
+				</div>
+			</motion.div>
+		</div>
 	);
 }

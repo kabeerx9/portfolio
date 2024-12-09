@@ -1,18 +1,14 @@
-import { motion } from 'framer-motion';
-import SectionHeader from '../ui/SectionHeader';
 import Terminal from '../cli/Terminal';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function TerminalSection() {
-  return (
-    <section className="container py-16 sm:py-24">
-      <SectionHeader
-        title="CLI Interface"
-        subtitle="Experience portfolio in terminal style"
-      />
-      
-      <div className="mt-8 flex justify-center">
-        <Terminal />
-      </div>
-    </section>
-  );
+	return (
+		<section className="container mx-auto py-16">
+			<SectionHeader
+				title="Terminal"
+				subtitle="Get the details about me using the below cli commands"
+			/>
+			<Terminal />
+		</section>
+	);
 }
