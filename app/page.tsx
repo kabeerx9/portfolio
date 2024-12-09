@@ -8,7 +8,6 @@ import Projects from '@/components/sections/Projects';
 import Skills from '@/components/sections/Skills';
 import TerminalSection from '@/components/sections/TerminalSection';
 import Footer from '@/components/ui/Footer';
-
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col">
