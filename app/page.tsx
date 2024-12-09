@@ -7,6 +7,7 @@ import Achievements from "@/components/sections/Achievements";
 import GitHubStats from "@/components/sections/GitHubStats";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/ui/Footer";
+import TerminalSection from '@/components/sections/TerminalSection';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Achievements />
       <GitHubStats />
       <Contact />
+      <TerminalSection />
       <Footer />
     </main>
   );
