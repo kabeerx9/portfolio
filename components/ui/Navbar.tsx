@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import ThemeToggle from "./ThemeToggle";
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
+import { useTheme } from 'next-themes';
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -17,16 +18,15 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const { theme } = useTheme();
   const { scrollY } = useScroll();
+
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.9)"]
-  );
-  const darkBackgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ["rgba(24, 24, 27, 0)", "rgba(24, 24, 27, 0.8)"]
+    theme === 'dark'
+      ? ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.9)']
+      : ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.9)']
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -35,10 +35,9 @@ export default function Navbar() {
       <motion.header
         style={{
           backgroundColor: backgroundColor,
-          ["--dark-bg" as string]: darkBackgroundColor,
           backdropFilter: "blur(12px)",
         }}
-        className="fixed top-0 left-0 right-0 z-50 dark:[background-color:var(--dark-bg)]"
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link
