@@ -10,9 +10,9 @@ export default function Hero() {
 			<BackgroundAnimation />
 
 			{/* Profile Image */}
-			<div className="relative w-32 h-32 rounded-full overflow-hidden ring-2 ring-zinc-200 dark:ring-zinc-800">
+			<div className="relative w-32 h-32 rounded-full overflow-hidden ring-2 ring-zinc-200 dark:ring-zinc-800 ">
 				<Image
-					src="/public/assets/my-photo.jpg" // Add your image path here
+					src="/assets/my-photo.jpg"
 					alt="Kabeer Joshi"
 					fill
 					className="object-cover"
