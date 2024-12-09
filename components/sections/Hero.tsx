@@ -33,7 +33,8 @@ export default function Hero() {
 			{/* CTA Buttons */}
 			<div className="flex flex-wrap gap-4 justify-center">
 				<Link
-					href="/resume.pdf" // Add your resume path here
+					href="https://drive.google.com/file/d/1A1ePohlTOyB4i3qXLjvrcqTjPeEpUYsD/view?usp=drive_link"
+					target="_blank"
 					className={cn(
 						'flex items-center gap-2 px-6 py-3',
 						'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900',
@@ -46,7 +47,8 @@ export default function Hero() {
 
 				<div className="flex gap-4">
 					<Link
-						href="https://github.com/yourusername" // Add your GitHub profile
+						href="https://github.com/kabeerx9"
+						target="_blank"
 						className={cn(
 							'p-3 rounded-lg transition-colors',
 							'hover:bg-zinc-100 dark:hover:bg-zinc-800'
@@ -54,7 +56,8 @@ export default function Hero() {
 						<Github size={24} />
 					</Link>
 					<Link
-						href="mailto:your.email@example.com" // Add your email
+						href="mailto:kabeer786joshi@gmail.com"
+						target="_blank"
 						className={cn(
 							'p-3 rounded-lg transition-colors',
 							'hover:bg-zinc-100 dark:hover:bg-zinc-800'
