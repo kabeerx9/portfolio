@@ -12,6 +12,13 @@ export default function Terminal() {
 	const [history, setHistory] = useState<Command[]>([]);
 	const [input, setInput] = useState('');
 	const inputRef = useRef<HTMLInputElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	const scrollToBottom = () => {
+		if (containerRef.current) {
+			containerRef.current.scrollTop = containerRef.current.scrollHeight;
+		}
+	};
 
 	const commands = {
 		help: () => (
@@ -116,24 +123,29 @@ export default function Terminal() {
 	const handleCommand = (cmd: string) => {
 		const [command, ...args] = cmd.toLowerCase().trim().split(' ');
 		const output =
-			commands[command as keyof typeof commands]?.(...args) ||
+			commands[command as keyof typeof commands]?.(args.join(' ')) ||
 			'Command not found. Type "help" for available commands.';
 
-		setHistory((prev) => [
-			...prev,
-			{
-				input: cmd,
-				output,
-				timestamp: new Date(),
-			},
-		]);
+		setHistory((prev) => {
+			const newHistory = [
+				...prev,
+				{
+					input: cmd,
+					output,
+					timestamp: new Date(),
+				},
+			];
 
-		// scroll to the bottom
+			// Use setTimeout to ensure DOM has updated
+			setTimeout(scrollToBottom, 0);
+			return newHistory;
+		});
 	};
 
 	return (
 		<div className="flex items-center w-full justify-center p-4">
 			<motion.div
+				ref={containerRef}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				className="bg-black/90 text-green-500 p-4 rounded-lg font-mono text-sm h-[500px] overflow-auto w-full"
