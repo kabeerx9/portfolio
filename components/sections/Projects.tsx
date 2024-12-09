@@ -5,33 +5,30 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import { motion } from 'framer-motion';
 
 const projects = [
-	{
-		title: 'Interactive Messaging Platform',
-		description:
-			'Real-time chat application with features like authentication, file sharing, and responsive design.',
-		image: '/assets/interactive-messaging.png',
-		technologies: ['Next JS', 'Clerk', 'Convex DB', 'Tailwind CSS'],
-		liveUrl: 'https://interactive-messaging.vercel.app/',
-		githubUrl: 'https://github.com/kabeerx9/chat-app',
-	},
-	{
-		title: 'React Explorer',
-		description:
-			'A comprehensive React components library featuring dynamic form builders and internationalization.',
-		image: '/assets/react-explorer.png',
-		technologies: ['ReactJS', 'TypeScript', 'i18n', 'TanStack Query'],
-		liveUrl: 'https://www.react-explorer.in/',
-		githubUrl: 'https://github.com/kabeerx9/react-examples',
-	},
-	{
-		title: 'CodeSync',
-		description:
-			'Real-time collaborative code editor with syntax highlighting and WebSocket integration.',
-		image: '/assets/code-sync.png',
-		technologies: ['ReactJS', 'WebSocket', 'CodeMirror', 'Node.js'],
-		liveUrl: 'https://nalle-logggg.onrender.com/',
-		githubUrl: 'https://github.com/kabeerx9/code-editor',
-	},
+    {
+        title: 'Interactive Messaging Platform',
+        description: 'Full-featured chat application with real-time messaging, file sharing capabilities, and user authentication. Built with modern technologies for optimal performance and user experience.',
+        image: '/assets/interactive-messaging.png',
+        technologies: ['Next JS', 'Clerk', 'Convex DB', 'Tailwind CSS', 'WebSocket'],
+        liveUrl: 'https://interactive-messaging.vercel.app/',
+        githubUrl: 'https://github.com/kabeerx9/chat-app',
+    },
+    {
+        title: 'React Explorer',
+        description: 'A sophisticated React components library showcasing advanced patterns, dynamic form generation, and multilingual support. Perfect for learning and implementing complex React concepts.',
+        image: '/assets/react-explorer.png',
+        technologies: ['ReactJS', 'TypeScript', 'i18n', 'TanStack Query', 'Styled Components'],
+        liveUrl: 'https://www.react-explorer.in/',
+        githubUrl: 'https://github.com/kabeerx9/react-examples',
+    },
+    {
+        title: 'CodeSync',
+        description: 'Collaborative code editor enabling real-time pair programming with syntax highlighting, auto-completion, and instant code synchronization across multiple users.',
+        image: '/assets/code-sync.png',
+        technologies: ['ReactJS', 'WebSocket', 'CodeMirror', 'Node.js', 'Express'],
+        liveUrl: 'https://nalle-logggg.onrender.com/',
+        githubUrl: 'https://github.com/kabeerx9/code-editor',
+    },
 ];
 
 const containerVariants = {

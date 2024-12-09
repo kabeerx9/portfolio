@@ -102,20 +102,64 @@ export default function Terminal() {
 		),
 		projects: () => (
 			<div className="prose prose-invert">
-				<h2>Projects</h2>
+				<h2>Featured Projects</h2>
 				<ul>
-					<li>Portfolio Website - Personal portfolio built with Next.js</li>
-					<li>Project 2 - Description of project 2</li>
-					<li>Project 3 - Description of project 3</li>
+					<li>
+						<strong>Interactive Messaging Platform</strong>
+						<p>Real-time chat with file sharing & authentication</p>
+						<p className="text-xs text-blue-500">Tech: Next.js, Clerk, Convex DB</p>
+					</li>
+					<li>
+						<strong>React Explorer</strong>
+						<p>Component library with dynamic form builders</p>
+						<p className="text-xs text-blue-500">Tech: React, TypeScript, i18n</p>
+					</li>
+					<li>
+						<strong>CodeSync</strong>
+						<p>Real-time collaborative code editor</p>
+						<p className="text-xs text-blue-500">Tech: React, WebSocket, CodeMirror</p>
+					</li>
 				</ul>
+				<p className="text-xs text-green-500">Type &apos;/view-project project-name&apos; for details!</p>
 			</div>
 		),
-		contact: () => (
-			<div className="prose prose-invert">
-				<h2>Contact Information</h2>
-				<p>Email: your.email@example.com</p>
-				<p>GitHub: github.com/yourusername</p>
-				<p>LinkedIn: linkedin.com/in/yourusername</p>
+		'ls': () => (
+			<div className="space-y-1">
+				<p>drwxr-xr-x  me  staff  about.md</p>
+				<p>drwxr-xr-x  me  staff  projects/</p>
+				<p>drwxr-xr-x  me  staff  skills.json</p>
+				<p>-rw-r--r--  me  staff  secret-memes/</p>
+				<p className="text-xs text-gray-500">Wow, such organized, much files!</p>
+			</div>
+		),
+		'pwd': () => (
+			<div>
+				<p>/home/kabeer/brain/awesome-stuff</p>
+				<p className="text-xs text-yellow-500">You are here! 🗺️</p>
+			</div>
+		),
+		'whoami': () => (
+			<div className="text-cyan-500">
+				<p>You are a curious visitor! 🕵️</p>
+				<p>But I am Kabeer, your friendly neighborhood developer 👋</p>
+			</div>
+		),
+		'date': () => (
+			<div>
+				<p>{new Date().toLocaleString()}</p>
+				<p className="text-xs text-purple-500">Time flies when you&apos;re coding! ⏰</p>
+			</div>
+		),
+		'sudo': () => (
+			<div className="text-red-500">
+				<p>Nice try! But you don&apos;t have permission to be awesome.</p>
+				<p>Just kidding, you&apos;re already awesome! 🌟</p>
+			</div>
+		),
+		'rm -rf': () => (
+			<div className="text-red-500">
+				<p>Nice try! But I&apos;d rather keep my files 😅</p>
+				<p>You can&apos;t delete me that easily!</p>
 			</div>
 		),
 	};
