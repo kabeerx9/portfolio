@@ -12,6 +12,7 @@ import {
 
 export const profile = {
   name: 'Kabeer Joshi',
+  photo: '/me.jpg',
   role: 'Mobile & backend engineer',
   location: 'Dehradun, India',
   intro:
@@ -24,6 +25,7 @@ export const profile = {
 
 export interface Work {
   company: string;
+  logo: string;
   url?: string;
   role: string;
   period: string;
@@ -35,6 +37,7 @@ export interface Work {
 export const work: Work[] = [
   {
     company: 'Shotgun Fantasy',
+    logo: '/logos/shotgun.png',
     url: 'https://shotgunfantasysports.com',
     role: 'React Native & backend engineer',
     period: 'Jun 2025 – now',
@@ -51,6 +54,7 @@ export const work: Work[] = [
   },
   {
     company: 'Goreeva',
+    logo: '/logos/goreeva.png',
     role: 'Frontend engineer',
     period: 'May 2023 – May 2025',
     summary:

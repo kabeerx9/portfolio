@@ -1,4 +1,5 @@
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { profile, projects, work } from '@/lib/content';
 
@@ -6,15 +7,27 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-[640px] px-5 pb-24 pt-20 sm:pt-28">
       <header className="reveal" style={{ '--i': 0 } as React.CSSProperties}>
-        <h1 className="text-[15px] font-medium text-fg">{profile.name}</h1>
-        <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-[15px] text-muted">
-          {profile.role}
-          <span aria-hidden className="hidden text-faint sm:inline">·</span>
-          <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-            <MapPin size={13} strokeWidth={1.75} aria-hidden />
-            {profile.location}
-          </span>
-        </p>
+        <div className="flex items-center gap-4">
+          <Image
+            src={profile.photo}
+            alt={profile.name}
+            width={56}
+            height={56}
+            priority
+            className="avatar"
+          />
+          <div className="min-w-0">
+            <h1 className="text-[17px] font-medium text-fg">{profile.name}</h1>
+            <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-[15px] text-muted">
+              {profile.role}
+              <span aria-hidden className="hidden text-faint sm:inline">·</span>
+              <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                <MapPin size={13} strokeWidth={1.75} aria-hidden />
+                {profile.location}
+              </span>
+            </p>
+          </div>
+        </div>
 
         <p className="mt-6 text-[15px] leading-relaxed text-fg/90">{profile.intro}</p>
 
@@ -29,15 +42,22 @@ export default function Home() {
         <ol className="space-y-12">
           {work.map(job => (
             <li key={job.company}>
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-[15px] font-medium text-fg">
-                  {job.url
-                    ? <a href={job.url} target="_blank" rel="noreferrer" className="link">{job.company}</a>
-                    : job.company}
-                </h3>
-                <span className="shrink-0 font-mono text-xs tabular-nums text-faint">{job.period}</span>
+              <div className="flex items-center gap-3.5">
+                <span className="logo-tile">
+                  <Image src={job.logo} alt="" width={28} height={28} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="text-[15px] font-medium text-fg">
+                      {job.url
+                        ? <a href={job.url} target="_blank" rel="noreferrer" className="link">{job.company}</a>
+                        : job.company}
+                    </h3>
+                    <span className="shrink-0 font-mono text-xs tabular-nums text-faint">{job.period}</span>
+                  </div>
+                  <p className="text-[14px] text-muted">{job.role}</p>
+                </div>
               </div>
-              <p className="text-[14px] text-muted">{job.role}</p>
               <p className="mt-3 text-[15px] leading-relaxed text-fg/90">{job.summary}</p>
               <ul className="mt-4 space-y-2">
                 {job.highlights.map(h => (
