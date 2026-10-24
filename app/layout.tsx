@@ -1,44 +1,35 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
+import './globals.css';
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
 });
 
 export const metadata: Metadata = {
-  title: "Kabeer Joshi - Frontend Developer",
-  description: "Frontend Developer specializing in React, Next.js, and TypeScript",
+  title: 'Kabeer Joshi',
+  description: 'React Native and TypeScript engineer. Mobile apps, realtime state and the APIs behind them.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fbfbfa' },
+    { media: '(prefers-color-scheme: dark)', color: '#0e0e0f' },
+  ],
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster position="top-right" />
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+        {children}
       </body>
     </html>
   );
