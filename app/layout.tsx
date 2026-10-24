@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: 'Kabeer Joshi',
-  description: 'React Native and TypeScript engineer. Mobile apps, realtime state and the APIs behind them.',
+  description: 'Mobile and backend engineer. React Native apps, realtime systems and the services behind them.',
 };
 
 export const viewport: Viewport = {

@@ -12,14 +12,14 @@ import {
 
 export const profile = {
   name: 'Kabeer Joshi',
-  role: 'React Native & TypeScript engineer',
+  role: 'Mobile & backend engineer',
   location: 'Dehradun, India',
   intro:
-    'I build mobile apps and the systems behind them. Right now I own the React Native frontend for a US fantasy sports startup, from realtime drafting to API integration, and I write backend code when the product needs it.',
+    'I build mobile apps and the backends behind them. At a US fantasy sports startup I own the React Native app end to end and work across its backend services, from the Go realtime draft room to the Django API.',
   email: 'kabeer786joshi@gmail.com',
   github: 'https://github.com/kabeerx9',
   linkedin: 'https://www.linkedin.com/in/kabeer-joshi-7173061aa',
-  stack: ['TypeScript', 'React Native', 'Expo', 'React', 'Node', 'Postgres', 'Swift'],
+  stack: ['TypeScript', 'React Native', 'Expo', 'React', 'Go', 'Django', 'Node', 'Postgres', 'Redis', 'Swift'],
 };
 
 export interface Work {
@@ -36,16 +36,17 @@ export const work: Work[] = [
   {
     company: 'Shotgun Fantasy',
     url: 'https://shotgunfantasysports.com',
-    role: 'Primary React Native / Expo developer',
+    role: 'React Native & backend engineer',
     period: 'Jun 2025 – now',
     summary:
-      'Fantasy sports app for a US startup, in active development. I own the mobile frontend end to end and contribute to the backend.',
+      'Fantasy sports app for a US startup, in active development. I own the Expo app end to end and build backend features in Go and Django.',
     highlights: [
-      'Realtime snake draft: turn resolution, roster-slot assignment and auto-pick fallback',
+      'Realtime snake draft: turn resolution and auto-pick in the app, versioned room state written atomically to Redis in the Go service',
       'Draft state that recovers cleanly on lossy mobile networks',
-      'Private contests with invite deep links',
-      'Live scoring and rosters fed by realtime events, with payloads validated at runtime',
-      'Wallet flows that only show balances confirmed by the backend',
+      'Private contests end to end: invite deep links in the app, preparation, settlement and refunds on the server',
+      'Clerk session verification on draft routes and Ably token auth for mobile realtime',
+      'Checkout status endpoint and wallet flows that only show balances the backend has confirmed',
+      'Contest join cutoffs re-checked right before charging',
     ],
   },
   {
