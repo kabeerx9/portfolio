@@ -124,11 +124,12 @@ export const projects: Project[] = [
     icon: Users,
   },
   {
-    name: 'Tattvix',
+    name: 'Tattwix',
     description:
       'Polyglot monorepo where a React web app, an Expo app and a Django API share typed contracts and validated env config.',
     tech: ['React', 'Expo', 'Django'],
     repo: 'https://github.com/kabeerx9/Tattvix',
+    live: 'https://tattwix.in',
     icon: Layers,
   },
   {
