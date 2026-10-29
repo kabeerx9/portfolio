@@ -2,11 +2,11 @@ import { ArrowUpRight, FileText, Github, Linkedin, Mail, MapPin } from 'lucide-r
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { profile, projects, work } from '@/lib/content';
-import { getContributions } from '@/lib/github';
+import { getActivity } from '@/lib/github';
 import { ContributionGraph } from './contribution-graph';
 
 export default async function Home() {
-  const contributions = await getContributions(profile.github.split('/').pop()!);
+  const contributions = await getActivity(profile.github.split('/').pop()!);
 
   return (
     <main className="mx-auto max-w-[640px] px-5 pb-24 pt-20 sm:pt-28">
