@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight, FileText, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { profile, projects, work } from '@/lib/content';
@@ -34,6 +34,7 @@ export default function Home() {
         <nav className="mt-6 flex flex-wrap gap-2" aria-label="Links">
           <Chip href={profile.github} icon={<Github size={14} strokeWidth={1.75} />}>GitHub</Chip>
           <Chip href={profile.linkedin} icon={<Linkedin size={14} strokeWidth={1.75} />}>LinkedIn</Chip>
+          <Chip href={profile.resume} icon={<FileText size={14} strokeWidth={1.75} />}>Resume</Chip>
           <Chip href={`mailto:${profile.email}`} icon={<Mail size={14} strokeWidth={1.75} />}>Email</Chip>
         </nav>
       </header>

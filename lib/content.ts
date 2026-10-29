@@ -20,6 +20,7 @@ export const profile = {
   email: 'kabeer786joshi@gmail.com',
   github: 'https://github.com/kabeerx9',
   linkedin: 'https://www.linkedin.com/in/kabeer-joshi-7173061aa',
+  resume: '/kabeer-joshi-resume.pdf',
   stack: ['TypeScript', 'React Native', 'Expo', 'React', 'Go', 'Django', 'Node', 'Postgres', 'Redis', 'Swift'],
 };
 
