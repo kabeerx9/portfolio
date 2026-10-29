@@ -2,8 +2,12 @@ import { ArrowUpRight, FileText, Github, Linkedin, Mail, MapPin } from 'lucide-r
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { profile, projects, work } from '@/lib/content';
+import { getContributions } from '@/lib/github';
+import { ContributionGraph } from './contribution-graph';
 
-export default function Home() {
+export default async function Home() {
+  const contributions = await getContributions(profile.github.split('/').pop()!);
+
   return (
     <main className="mx-auto max-w-[640px] px-5 pb-24 pt-20 sm:pt-28">
       <header className="reveal" style={{ '--i': 0 } as React.CSSProperties}>
@@ -110,11 +114,17 @@ export default function Home() {
         </a>
       </Section>
 
-      <Section title="Stack" index={3}>
+      {contributions && (
+        <Section title="GitHub" index={3}>
+          <ContributionGraph data={contributions} profileUrl={profile.github} />
+        </Section>
+      )}
+
+      <Section title="Stack" index={4}>
         <p className="font-mono text-[13px] leading-loose text-muted">{profile.stack.join('  ·  ')}</p>
       </Section>
 
-      <footer className="reveal mt-24 flex items-center justify-between border-t border-line pt-6 text-xs text-faint" style={{ '--i': 4 } as React.CSSProperties}>
+      <footer className="reveal mt-24 flex items-center justify-between border-t border-line pt-6 text-xs text-faint" style={{ '--i': 5 } as React.CSSProperties}>
         <a href={`mailto:${profile.email}`} className="link font-mono">{profile.email}</a>
         <span>© {new Date().getFullYear()}</span>
       </footer>
